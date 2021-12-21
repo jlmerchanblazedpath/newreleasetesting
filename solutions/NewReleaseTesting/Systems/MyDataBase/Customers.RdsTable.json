@@ -1,0 +1,33 @@
+{
+  "autoincrementalPrimaryKey": false,
+  "columns": [
+    {
+      "alias": "id",
+      "name": "ID",
+      "primaryKey": true,
+      "type": "integer"
+    },
+    {
+      "alias": "name",
+      "name": "NAME",
+      "type": "string"
+    },
+    {
+      "alias": "surname",
+      "name": "SURNAME",
+      "type": "string"
+    },
+    {
+      "alias": "email",
+      "name": "EMAIL",
+      "type": "string"
+    }
+  ],
+  "foreignKeys": [],
+  "indexes": [],
+  "isView": false,
+  "primaryKeyName": "TBL_CUSTOMER_PK",
+  "sequenceName": "",
+  "tableName": "TBL_CUSTOMER",
+  "uniqueKeys": []
+}

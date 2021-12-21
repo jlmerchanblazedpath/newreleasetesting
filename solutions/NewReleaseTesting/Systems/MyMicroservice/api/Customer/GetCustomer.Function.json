@@ -1,0 +1,32 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "id",
+        "type": "integer"
+      }
+    ],
+    "statements": [
+      {
+        "command": "Return",
+        "expression": "RdsSelectOne(MyDataBase.Customers, This(), id == ^id)"
+      }
+    ],
+    "typeReturn": "Customer",
+    "variables": []
+  },
+  "routing": {
+    "method": "GET",
+    "parameters": [
+      {
+        "bind": "id",
+        "in": "Path",
+        "name": "id",
+        "remarks": "Id."
+      }
+    ],
+    "path": "/customer/{id}",
+    "remarks": "Allows to get a Customer.",
+    "responses": []
+  }
+}

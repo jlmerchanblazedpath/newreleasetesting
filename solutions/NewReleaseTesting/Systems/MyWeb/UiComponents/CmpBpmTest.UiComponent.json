@@ -1,0 +1,95 @@
+{
+  "eventsAndFunctions": [
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "GetValue",
+            "variableName": "ageValue",
+            "widgetName": "textbox1"
+          },
+          {
+            "command": "Set",
+            "expression": "MyMicroservice.BpmStart(^ageValue, \"Somename\", \"Somesurname\")",
+            "variableName": "returnValue"
+          },
+          {
+            "command": "SetValue",
+            "expression": "{ textValue: ^returnValue }",
+            "widgetName": "htmlrenderer1"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "ageValue",
+            "type": "integer"
+          },
+          {
+            "name": "returnValue",
+            "type": "string"
+          }
+        ]
+      },
+      "name": "button1_click"
+    },
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [],
+        "typeReturn": "any",
+        "variables": []
+      },
+      "name": "button2_click"
+    },
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "SetValue",
+            "expression": "{ textValue: \"nothing yet\" }",
+            "widgetName": "htmlrenderer1"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": []
+      },
+      "name": "main_init"
+    }
+  ],
+  "model": [],
+  "root": {
+    "children": [
+      {
+        "name": "textbox1",
+        "size": "quarter",
+        "widget": "TextBox"
+      },
+      {
+        "color": "primary",
+        "dock": "previous",
+        "name": "button1",
+        "text": "start",
+        "widget": "Button"
+      },
+      {
+        "name": "button2",
+        "widget": "Button"
+      },
+      {
+        "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large blz-padding-bottom-large blz-border-top blz-border-right blz-border-left blz-border-bottom blz-border-radius blz-cast-shadow",
+        "htmlTemplate": "<div>\n  <h1>Result Value: {{textValue}}</h1>\n</div>",
+        "name": "htmlrenderer1",
+        "widget": "HtmlRenderer"
+      }
+    ],
+    "cssClass": "blz-area-default",
+    "layout": "container"
+  },
+  "routing": {
+    "path": "/bpm_test"
+  },
+  "unused": []
+}

@@ -1,0 +1,114 @@
+{
+  "eventsAndFunctions": [
+    {
+      "algorithm": {
+        "parameters": [
+          {
+            "name": "instanceId",
+            "type": "string"
+          },
+          {
+            "name": "tokenId",
+            "type": "string"
+          }
+        ],
+        "statements": [
+          {
+            "command": "ReadModel",
+            "modelVariableName": "age",
+            "variableName": "age"
+          },
+          {
+            "children": [
+              {
+                "command": "Return",
+                "expression": "true"
+              }
+            ],
+            "command": "If",
+            "expression": "age < 18"
+          },
+          {
+            "command": "Return",
+            "expression": "false"
+          }
+        ],
+        "typeReturn": "boolean",
+        "variables": [
+          {
+            "name": "age",
+            "type": "integer"
+          }
+        ]
+      },
+      "name": "exclusivegateway1_evaluate"
+    }
+  ],
+  "model": [
+    {
+      "name": "name",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "surname",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "required": false,
+      "type": "integer"
+    }
+  ],
+  "nodes": [
+    {
+      "name": "end1",
+      "nodeType": "End",
+      "remark": "EndOne",
+      "x": 716,
+      "y": 144
+    },
+    {
+      "name": "end2",
+      "nodeType": "End",
+      "remark": "EndTwo",
+      "x": 728,
+      "y": 389
+    },
+    {
+      "name": "exclusivegateway1",
+      "nodeType": "ExclusiveGateway",
+      "remark": "UnderAge",
+      "x": 464,
+      "y": 269
+    },
+    {
+      "name": "start1",
+      "nodeType": "Start",
+      "remark": "Start",
+      "x": 238,
+      "y": 269
+    }
+  ],
+  "transitions": [
+    {
+      "forkType": "yes",
+      "fromNodeName": "exclusivegateway1",
+      "name": "connection-Infinity",
+      "nodeType": "ExclusiveGatewayEdge",
+      "toNodeName": "end1"
+    },
+    {
+      "forkType": "no",
+      "fromNodeName": "exclusivegateway1",
+      "name": "connection-Infinity",
+      "nodeType": "ExclusiveGatewayEdge",
+      "toNodeName": "end2"
+    },
+    {
+      "fromNodeName": "start1",
+      "toNodeName": "exclusivegateway1"
+    }
+  ]
+}

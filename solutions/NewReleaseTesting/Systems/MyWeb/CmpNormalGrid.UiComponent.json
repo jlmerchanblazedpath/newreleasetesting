@@ -1,0 +1,159 @@
+{
+  "eventsAndFunctions": [
+    {
+      "algorithm": {
+        "parameters": [
+          {
+            "name": "args",
+            "type": "ArgsLoadRecords"
+          }
+        ],
+        "statements": [
+          {
+            "command": "Set",
+            "expression": "{}",
+            "variableName": "args1"
+          },
+          {
+            "command": "Set",
+            "expression": "^args.offset",
+            "variableName": "args1.offset"
+          },
+          {
+            "command": "Set",
+            "expression": "^args.limit",
+            "variableName": "args1.limit"
+          },
+          {
+            "command": "GetValue",
+            "variableName": "filterValue",
+            "widgetName": "textbox1"
+          },
+          {
+            "children": [
+              {
+                "command": "Set",
+                "expression": "^filterValue",
+                "variableName": "args1.textfiltervalue"
+              }
+            ],
+            "command": "If",
+            "expression": "IsNotNull(^filterValue)"
+          },
+          {
+            "command": "Return",
+            "expression": "MyMicroservice.ListCustomers(^args1)"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": [
+          {
+            "name": "args1",
+            "type": "MyMicroservice.ArgsListCustomers"
+          },
+          {
+            "name": "filterValue",
+            "type": "string"
+          }
+        ]
+      },
+      "name": "grid1_loadRecords"
+    },
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "Refresh",
+            "widgetName": "grid1"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": []
+      },
+      "name": "main_init"
+    },
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "Refresh",
+            "widgetName": "grid1"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": []
+      },
+      "name": "grid1_init"
+    },
+    {
+      "algorithm": {
+        "parameters": [],
+        "statements": [
+          {
+            "command": "Refresh",
+            "widgetName": "grid1"
+          }
+        ],
+        "typeReturn": "any",
+        "variables": []
+      },
+      "name": "button1_click"
+    }
+  ],
+  "model": [],
+  "root": {
+    "children": [
+      {
+        "label": "SurnameFilter",
+        "name": "textbox1",
+        "size": "third",
+        "widget": "TextBox"
+      },
+      {
+        "color": "primary",
+        "dock": "previous",
+        "name": "button1",
+        "text": "ApplyFilter",
+        "widget": "Button"
+      },
+      {
+        "columns": [
+          {
+            "align": "left",
+            "bindText": "name",
+            "header": "Name",
+            "key": "name"
+          },
+          {
+            "align": "left",
+            "bindText": "surname",
+            "header": "Surname",
+            "key": "surname"
+          },
+          {
+            "align": "left",
+            "bindText": "email",
+            "header": "Email",
+            "key": "email"
+          }
+        ],
+        "cssClass": "blz-border-radius blz-cast-shadow blz-area-default",
+        "name": "grid1",
+        "pageSize": 4,
+        "typeName": "MyMicroservice.Customer",
+        "widget": "Grid",
+        "withPaging": true
+      }
+    ],
+    "cssClass": "blz-padding-top-large blz-padding-right-large blz-padding-left-large blz-padding-bottom-large blz-area-main",
+    "horizontalSeparation": "large",
+    "layout": "container",
+    "verticalSeparation": "large"
+  },
+  "routing": {
+    "path": "/normalgrid"
+  },
+  "unused": []
+}

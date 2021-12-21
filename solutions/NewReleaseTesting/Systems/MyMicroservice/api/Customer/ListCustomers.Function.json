@@ -1,0 +1,50 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "args",
+        "type": "ArgsListCustomers"
+      }
+    ],
+    "statements": [
+      {
+        "command": "Return",
+        "expression": "RdsSelect(MyDataBase.Customers, This(), [RdsConditional(id == ^args.id, !IsNull(^args.id)), RdsConditional(Contains(surname, ^args.textfiltervalue), !IsNull(^args.textfiltervalue))], id, ^args.offset, ^args.limit)"
+      }
+    ],
+    "typeReturn": "list(Customer)",
+    "variables": []
+  },
+  "routing": {
+    "method": "GET",
+    "parameters": [
+      {
+        "bind": "args.id",
+        "in": "Query",
+        "name": "id",
+        "remarks": "For filtering."
+      },
+      {
+        "bind": "args.offset",
+        "in": "Query",
+        "name": "offset",
+        "remarks": "Requested index for start the results to be provided in response."
+      },
+      {
+        "bind": "args.limit",
+        "in": "Query",
+        "name": "limit",
+        "remarks": "Requested number results to be provided in response."
+      },
+      {
+        "bind": "args.textfiltervalue",
+        "in": "Query",
+        "name": "textfiltervalue",
+        "remarks": "a field to filter by text"
+      }
+    ],
+    "path": "/customers",
+    "remarks": "Allows to get a list of Customers.",
+    "responses": []
+  }
+}

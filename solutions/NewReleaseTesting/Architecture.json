@@ -1,0 +1,53 @@
+{
+  "systems": [
+    {
+      "name": "BpmEngine",
+      "type": "ProcessEngine",
+      "x": 472,
+      "y": 396
+    },
+    {
+      "name": "MongoBpmDb",
+      "type": "Mongodb",
+      "x": 747,
+      "y": 394
+    },
+    {
+      "name": "MyDataBase",
+      "type": "RelationalDatabase",
+      "x": 738,
+      "y": 221
+    },
+    {
+      "name": "MyMicroservice",
+      "type": "Microservice",
+      "x": 474,
+      "y": 220
+    },
+    {
+      "name": "MyWeb",
+      "type": "WebFrontend",
+      "x": 216,
+      "y": 219
+    }
+  ],
+  "references": [
+    {
+      "fromSystemName": "BpmEngine",
+      "toSystemName": "MongoBpmDb",
+      "processPersistence": true
+    },
+    {
+      "fromSystemName": "MyMicroservice",
+      "toSystemName": "BpmEngine"
+    },
+    {
+      "fromSystemName": "MyMicroservice",
+      "toSystemName": "MyDataBase"
+    },
+    {
+      "fromSystemName": "MyWeb",
+      "toSystemName": "MyMicroservice"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "id",
+        "type": "integer"
+      },
+      {
+        "name": "customer",
+        "type": "Customer"
+      }
+    ],
+    "statements": [
+      {
+        "command": "Return",
+        "expression": "RdsUpdate(MyDataBase.Customers, ^customer, id == ^id)"
+      }
+    ],
+    "typeReturn": "any",
+    "variables": []
+  },
+  "routing": {
+    "method": "PATCH",
+    "parameters": [
+      {
+        "bind": "id",
+        "in": "Path",
+        "name": "id",
+        "remarks": "Id."
+      },
+      {
+        "bind": "customer",
+        "in": "Body",
+        "name": "body",
+        "remarks": "New Customer information to be updated."
+      }
+    ],
+    "path": "/customer/{id}",
+    "remarks": "Allows to update an existing Customer.",
+    "responses": []
+  }
+}

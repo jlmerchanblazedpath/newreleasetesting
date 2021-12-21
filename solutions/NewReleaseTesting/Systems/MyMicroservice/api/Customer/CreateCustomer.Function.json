@@ -1,0 +1,32 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "customer",
+        "type": "Customer"
+      }
+    ],
+    "statements": [
+      {
+        "command": "Return",
+        "expression": "RdsInsert(MyDataBase.Customers, ^customer)"
+      }
+    ],
+    "typeReturn": "any",
+    "variables": []
+  },
+  "routing": {
+    "method": "POST",
+    "parameters": [
+      {
+        "bind": "customer",
+        "in": "Body",
+        "name": "body",
+        "remarks": "Customer to be created."
+      }
+    ],
+    "path": "/customer",
+    "remarks": "Allows to create a new Customer.",
+    "responses": []
+  }
+}

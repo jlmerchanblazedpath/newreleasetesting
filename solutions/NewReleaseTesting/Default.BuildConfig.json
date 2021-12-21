@@ -1,0 +1,92 @@
+{
+  "items": [
+    {
+      "systemName": "MyWeb",
+      "action": "build",
+      "buildPort": 50500
+    },
+    {
+      "systemName": "MyMicroservice",
+      "action": "build",
+      "buildPort": 50501
+    },
+    {
+      "systemName": "MyDataBase",
+      "action": "mock",
+      "mockInitialization": {
+        "records": [
+          {
+            "rdsTableName": "Customers",
+            "id": 1,
+            "name": "Yale",
+            "surname": "Thompkins",
+            "email": "ythompkins@bussinsider.com"
+          },
+          {
+            "rdsTableName": "Customers",
+            "id": 2,
+            "name": "Nettle",
+            "surname": "Moss",
+            "email": "nmoss@nymag.com"
+          },
+          {
+            "rdsTableName": "Customers",
+            "id": 3,
+            "name": "Simeon",
+            "surname": "Henrych",
+            "email": "shenrych@artister.com"
+          },
+          {
+            "rdsTableName": "Customers",
+            "id": 4,
+            "name": "Richard",
+            "surname": "Hendrix",
+            "email": "richie@piedpieper.com"
+          },
+          {
+            "rdsTableName": "Customers",
+            "id": 5,
+            "name": "Nelson",
+            "surname": "Biggety",
+            "email": "bighead@piedpiper.com"
+          },
+          {
+            "rdsTableName": "Customers",
+            "id": 6,
+            "name": "Gilfoyle",
+            "surname": "Bertram",
+            "email": "antoan@piedpiper.com"
+          },
+          {
+            "rdsTableName": "Customers",
+            "id": 7,
+            "name": "Dinesh",
+            "surname": "Chugtai",
+            "email": "dinesh@piedpiper.com"
+          },
+          {
+            "rdsTableName": "Customers",
+            "id": 8,
+            "name": "Donald",
+            "surname": "Dunn",
+            "email": "jared@piedpiper.com"
+          },
+          {
+            "rdsTableName": "Customers",
+            "id": 9,
+            "name": "Erlich",
+            "surname": "Bachman",
+            "email": "erlich@piedpiper.com"
+          },
+          {
+            "rdsTableName": "Customers",
+            "id": 10,
+            "name": "Jian",
+            "surname": "Yang",
+            "email": "jianyang@newpiedpiper.com"
+          }
+        ]
+      }
+    }
+  ]
+}

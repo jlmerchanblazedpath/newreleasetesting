@@ -1,0 +1,81 @@
+{
+  "algorithm": {
+    "parameters": [
+      {
+        "name": "age",
+        "type": "integer"
+      },
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "surname",
+        "type": "string"
+      }
+    ],
+    "statements": [
+      {
+        "children": [
+          {
+            "command": "Set",
+            "expression": "ProcessStart(BpmEngine.BpmTestProcess, { age: ^age })",
+            "variableName": "bpmInstanceId"
+          },
+          {
+            "command": "Return",
+            "expression": "^bpmInstanceId"
+          }
+        ],
+        "command": "Try"
+      },
+      {
+        "children": [
+          {
+            "command": "Return",
+            "expression": "JsonStringify(^myError)"
+          }
+        ],
+        "command": "Catch",
+        "errorName": "Error",
+        "variableName": "myError"
+      }
+    ],
+    "typeReturn": "string",
+    "variables": [
+      {
+        "name": "bpmInstanceId",
+        "type": "string"
+      },
+      {
+        "name": "myError",
+        "type": "Error"
+      }
+    ]
+  },
+  "routing": {
+    "method": "GET",
+    "parameters": [
+      {
+        "bind": "age",
+        "in": "Query",
+        "name": "age",
+        "remarks": "the age"
+      },
+      {
+        "bind": "name",
+        "in": "Query",
+        "name": "name",
+        "remarks": "the name"
+      },
+      {
+        "bind": "surname",
+        "in": "Query",
+        "name": "surname",
+        "remarks": "the surname"
+      }
+    ],
+    "path": "/bpmstart",
+    "remarks": "starts the bpm process"
+  }
+}
